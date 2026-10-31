@@ -95,9 +95,12 @@ android {
     }
     buildTypes {
         debug {
+            applicationIdSuffix ".debug"
+            resValue "string", "app_name", "InputForge(Debug)"
             signingConfig signingConfigs.debug
         }
         release {
+            resValue "string", "app_name", "InputForge"
             // Caution! In production, you need to generate your own keystore file.
             // see https://reactnative.dev/docs/signed-apk-android.
             signingConfig signingConfigs.debug
@@ -117,3 +120,5 @@ dependencies {
         implementation jscFlavor
     }
 }
+
+apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
